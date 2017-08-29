@@ -1,4 +1,4 @@
-# Convertissuer de températures
+# Convertisseur de températures
 
 Ce convertisseur supporte les unités :
 - Kelvin °K
