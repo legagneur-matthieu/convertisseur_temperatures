@@ -54,9 +54,6 @@ class ct {
                 function convert() {
                     t = parseFloat($("#t").val());
                     switch ($("#from").val()) {
-                        case "OWN":
-                            t = x * t + c;
-                            break;
                         case "K":
                             t -= 273.16;
                             break;

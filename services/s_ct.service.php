@@ -25,6 +25,7 @@ class s_ct {
                     $t = 1.8850267379679144 * $t + 4.2;
                     break;
             }
+            ob_clean();
             echo json_encode([
                 "C" => $t,
                 "K" => ($t + 273.16),
@@ -32,6 +33,7 @@ class s_ct {
                 "B" => (($t - 4.2) / 1.8850267379679144)
             ]);
         } else {
+            ob_clean();
             echo json_encode(false);
         }
     }
