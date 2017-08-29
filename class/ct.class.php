@@ -52,11 +52,30 @@ class ct {
         <script type="text/javascript">
             $(document).ready(function () {
                 function convert() {
-                    $.post("./services/index.php", {service: "s_ct", t: $("#t").val(), from: $("#from").val()}, function (data) {
-                        $.each(data, function (k, v) {
-                            $("#result>#" + k).text(v);
-                        });
-                    }, "json");
+                    t = parseFloat($("#t").val());
+                    switch ($("#from").val()) {
+                        case "OWN":
+                            t = x * t + c;
+                            break;
+                        case "K":
+                            t -= 273.16;
+                            break;
+                        case "F":
+                            t = (t - 32) / 1.8;
+                            break;
+                        case "B":
+                            t = 1.8850267379679144 * t + 4.2;
+                            break;
+                    }
+                    $("#K").text(t + 273.16);
+                    $("#C").text(t);
+                    $("#F").text(t * 1.8 + 32);
+                    $("#B").text((t - 4.2) / 1.8850267379679144);                    
+//                    $.post("./services/index.php", {service: "s_ct", t: $("#t").val(), from: $("#from").val()}, function (data) {
+//                        $.each(data, function (k, v) {
+//                            $("#result>#" + k).text(v);
+//                        });
+//                    }, "json");
                 }
                 $("#t, #from").change(function () {
                     convert();
@@ -104,7 +123,7 @@ class ct {
             </div>
         </div>
         <div class="center-block" style="width: 600px;">
-            <p class="text-center">Source : <strong>Le Kelvin, c'est chaud - SI - 04 | e-penser (Bruce Benamran)</strong></p>
+            <p class="text-center">Source : <strong><?= html_structures::a_link("https://www.youtube.com/watch?v=OqcqsUaEqUk", "Le Kelvin, c'est chaud - SI - 04 | e-penser (Bruce Benamran)", "", "YouTube, lien externe", true);?></strong></p>
             <iframe width="600" height="340" src="https://www.youtube.com/embed/OqcqsUaEqUk" frameborder="0" allowfullscreen></iframe>
         </div>
         <?php
