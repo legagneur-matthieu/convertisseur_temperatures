@@ -1,6 +1,6 @@
 # Convertisseur de températures
 
-Site : http://www.legagneur-matthieu.hebergratuit.net/convertisseur_temperatures/
+Site : http://dwf.sytes.net/convertisseur_temperatures/
 
 Ce convertisseur supporte les unités :
 - Kelvin °K
@@ -16,4 +16,4 @@ Il est donc requis pour faire tourner cette application :
 1. Télécharger le DevWebFramework
 2. Deposer le dossier "dwf" dans "www" de votre serveur WAMP/LAMP
 3. Deposer le contenu du dossier "html" dans "www/html" de votre serveur WAMP/LAMP
-4. Déposer l'application dans "www/html/convertissuer_températures"
+4. Déposer l'application dans "www/html/convertisseur_températures"

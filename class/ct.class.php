@@ -192,7 +192,7 @@ class ct {
     public function your_own() {
         ?>
         <h1 class="text-center">Créez votre échelle de température</h1>
-        <p class="text-center">Le degré Benamran vous a faire sourir ? vous voulez essayer avec d'autres valeurs ? allez-y ! <br />
+        <p class="text-center">Le degré Benamran vous a fait sourir ? vous voulez essayer avec d'autres valeurs ? allez-y ! <br />
             <small>pour les calculs, votre échelle portera le nom "Own" et est noté °OWN</small></p>
         <?php form::new_form(); ?>
         <div class="row">
