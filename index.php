@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class website { /** * Liste des classes metier et classes du framework * @var array */
 

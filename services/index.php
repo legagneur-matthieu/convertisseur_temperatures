@@ -1,6 +1,9 @@
-<?php
-
-class index_service { /** * Cette classe est la première appelée, elle ouvre les variables de session et la connexion a la base de donnée, <br /> * redéfinie la time zone et fait appel à ces méthodes privées avant d'appeler la class application (IDEM __construct()...) */
+﻿<?php
+/**
+ * Cette classe est la première appelée, elle ouvre les variables de session et la connexion a la base de donnée, <br /> 
+ * redéfinie la time zone et fait appel à ces méthodes privées avant d'appeler la class application (IDEM __construct()...) 
+ */
+class index_service { 
 
     public function __construct() {
         try {

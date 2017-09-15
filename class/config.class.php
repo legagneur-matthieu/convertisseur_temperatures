@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /** * Cette classe sert de fichier de configuration, <br /> * elle contient: * <ul> * <li>les variables de connexion à la base de données</li> * <li>l 'algo utilisé pour les hash</li> * <li>les routes de l 'aplication</li> * </ul> * * mais vous pouvez également y ajouter des variables diverses qui vous seront utile */
 class config { /* PDO */
@@ -35,6 +35,8 @@ class config { /* PDO */
             array("page" => "api", "title" => "API", "text" => "API", "description" => "API convertisseur de temperatures °K, °C, °F, °B",
                 "keyword" => "API, " . $keyword),
             array("page" => "your_own", "title" => "créez votre echelle", "text" => "Votre Échelle", "description" => "API convertisseur de temperatures °K, °C, °F, °B",
+                "keyword" => $keyword),
+            array("page" => "apk", "title" => "Le convertisseur de temperatures sur mobile", "text" => "APK", "description" => "APK Convertisseur de temperatures °K, °C, °F, °B",
                 "keyword" => $keyword),
         );
     }

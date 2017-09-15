@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Classe métier ct
@@ -17,10 +17,10 @@ class ct {
                 form::new_form();
                 form::input("Température", "t", "text", "0", false);
                 form::select("Unité à convertir", "from", [
-                        ["K", "Kelvin (°K)"],
-                        ["C", "Celsius (°C)"],
-                        ["F", "Fahrenheit (°F)"],
-                        ["B", "Benamran (°B)"],
+                    ["K", "Kelvin (°K)"],
+                    ["C", "Celsius (°C)"],
+                    ["F", "Fahrenheit (°F)"],
+                    ["B", "Benamran (°B)"],
                 ]);
                 form::submit("btn-default", "Calculer");
                 form::close_form();
@@ -67,12 +67,12 @@ class ct {
                     $("#K").text(t + 273.16);
                     $("#C").text(t);
                     $("#F").text(t * 1.8 + 32);
-                    $("#B").text((t - 4.2) / 1.8850267379679144);                    
-//                    $.post("./services/index.php", {service: "s_ct", t: $("#t").val(), from: $("#from").val()}, function (data) {
-//                        $.each(data, function (k, v) {
-//                            $("#result>#" + k).text(v);
-//                        });
-//                    }, "json");
+                    $("#B").text((t - 4.2) / 1.8850267379679144);
+        //                    $.post("./services/index.php", {service: "s_ct", t: $("#t").val(), from: $("#from").val()}, function (data) {
+        //                        $.each(data, function (k, v) {
+        //                            $("#result>#" + k).text(v);
+        //                        });
+        //                    }, "json");
                 }
                 $("#t, #from").change(function () {
                     convert();
@@ -93,7 +93,7 @@ class ct {
             <div class="col-xs-6">
                 <p>
                     Le degré Benamran a été inventé à titre d'exemple humoristique par Bruce Benamran dans une vidéo sur sa chaine Youtube "e-penser".
-                    Vidéo qui avais pour thèmes les échelles de températures.<br />
+                    Vidéo qui avais pour thème les échelles de températures.<br />
                     Il définit le zéro de son échelle de température comme étant la température de son frigo à un moment T (4.2°C) et 
                     définit la température haute de son échelle comme étant la température d'ébullition du mercure (356.7°C). <br />
                     Il gradue son échelle en 17 subdivisions elles-mêmes divisé en 11 subdivisions,<br />
@@ -120,7 +120,7 @@ class ct {
             </div>
         </div>
         <div class="center-block" style="width: 600px;">
-            <p class="text-center">Source : <strong><?= html_structures::a_link("https://www.youtube.com/watch?v=OqcqsUaEqUk", "Le Kelvin, c'est chaud - SI - 04 | e-penser (Bruce Benamran)", "", "YouTube, lien externe", true);?></strong></p>
+            <p class="text-center">Source : <strong><?= html_structures::a_link("https://www.youtube.com/watch?v=OqcqsUaEqUk", "Le Kelvin, c'est chaud - SI - 04 | e-penser (Bruce Benamran)", "", "YouTube, lien externe", true); ?></strong></p>
             <iframe width="600" height="340" src="https://www.youtube.com/embed/OqcqsUaEqUk" frameborder="0" allowfullscreen></iframe>
         </div>
         <?php
@@ -153,9 +153,9 @@ class ct {
                     <dd>
                         <?=
                         html_structures::table(["Clé", "Description", "Valeur"], [
-                                ["service", "Nom du service", '"s_ct"'],
-                                ["t", "Température à convertir", "<em>Nombre entier ou décimal</em>"],
-                                ["from", "Unité de la temperature à convertir", '"K", "C", "F" ou "B"'],
+                            ["service", "Nom du service", '"s_ct"'],
+                            ["t", "Température à convertir", "<em>Nombre entier ou décimal</em>"],
+                            ["from", "Unité de la temperature à convertir", '"K", "C", "F" ou "B"'],
                         ]);
                         ?>
                     </dd>
@@ -186,6 +186,7 @@ class ct {
                 ?>
             </div>
         </div>
+        <a href="ct.apk">APK</a>
         <?php
     }
 
@@ -219,11 +220,11 @@ class ct {
                 form::new_fieldset("2 - Testez votre échelle");
                 form::input("Température", "t", "text", "0", false);
                 form::select("Unité à convertir", "from", [
-                        ["OWN", "Own (°OWN)"],
-                        ["K", "Kelvin (°K)"],
-                        ["C", "Celsius (°C)"],
-                        ["F", "Fahrenheit (°F)"],
-                        ["B", "Benamran (°B)"],
+                    ["OWN", "Own (°OWN)"],
+                    ["K", "Kelvin (°K)"],
+                    ["C", "Celsius (°C)"],
+                    ["F", "Fahrenheit (°F)"],
+                    ["B", "Benamran (°B)"],
                 ]);
                 form::close_fieldset();
                 ?>
@@ -290,6 +291,43 @@ class ct {
                 cown();
             });
         </script>
+        <?php
+    }
+
+    public function apk() {
+        ?>
+        <h2>Le convertisseur de températures sur mobile</h2>
+        <p>
+            Le convertisseur est disponible sur android ! <br />
+            Développé avec <?= html_structures::a_link("https://cordova.apache.org/", "Cordova", "", "Cordova, lien externe", true); ?>
+            sous <?= html_structures::a_link("https://www.gnu.org/licenses/gpl-3.0.fr.html", "licence GNU/GPL v3", "", "licence GNU/GPL v3, lien externe", true); ?>
+        </p>
+        <?=
+        html_structures::ul([
+            html_structures::a_link("apk/convertisseur_temperatures.apk", "Télécharger .APK"),
+            html_structures::a_link("https://github.com/legagneur-matthieu/cdv_convertisseur_temperatures/", "GitHub", "", "Convertisseur de temperatures, lien externe Github", true)
+        ]);
+        ?>
+        <div class="alert alert-warning">
+            <p>Cette application mobile n'est pas une application officielle, <br />
+                votre appareil mobile (ou son antivirus) est donc susceptible de vous afficher des alertes de sécurité. 
+            </p>
+            <p>
+                Il s'agit d'un faux positif.
+            </p>
+            <p>                
+                <strong>Cependant</strong>, si vous avez un doute ( ce qui est légitime), l'auteur vous invite à suivre la procédure suivante :
+            </p>
+            <?=
+            html_structures::ol([
+                html_structures::a_link("https://github.com/legagneur-matthieu/cdv_convertisseur_temperatures/", "Téléchargez le projet sur Github", "", "lien externe Github", true),
+                "Vérifiez par vous même le code",
+                html_structures::a_link("https://cordova.apache.org/docs/fr/latest/guide/cli/index.html", "Compilez le projet avec Cordova", "", "", true),
+                "Installez l'APK que vous avez compilé sur votre appareil"
+            ]);
+            ?>
+            <p>L'application sera disponible sur le Google Play Store dans un proche avenir !</p>
+        </div>
         <?php
     }
 

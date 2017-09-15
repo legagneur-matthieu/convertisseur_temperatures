@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /** * Cette classe sert de "Vue" à votre application, * vous pouvez y développer votre application comme bon vous semble : * HTML, créér et appeler une fonction "private" dans une fonction "public", faire appel à des classes exterieures ... * @author LEGAGNEUR Matthieu <legagneur.matthieu@gmail.com> */
 class pages { /** * Cette classe sert de "Vue" à votre application, * vous pouvez y développer votre application comme bon vous semble : * HTML, créé et appelle une fonction "private" dans une fonction "public", faire appel à des classes exterieures ... */
@@ -15,7 +15,7 @@ class pages { /** * Cette classe sert de "Vue" à votre application, * vous pouv
         ?> 
         <script type="text/javascript">
             $(document).ready(function () {
-                $("header").css("background", "linear-gradient(to right, red, orange, yellow, yellowgreen, green, blue, indigo, violet");
+                $("header").css("background", "linear-gradient(to right, red, orange, yellow, yellowgreen, green, blue, indigo, violet)");
                 $("header small").css("text-shadow", "0 0 15px black");
             }
             );
@@ -46,6 +46,10 @@ class pages { /** * Cette classe sert de "Vue" à votre application, * vous pouv
 
     public function your_own() {
         $this->_ct->your_own();
+    }
+
+    public function apk() {
+        $this->_ct->apk();
     }
 
 }
