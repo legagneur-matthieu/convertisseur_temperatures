@@ -8,7 +8,9 @@
 class s_ct {
 
     public function __construct() {
-        (new php_header())->content_type("json");
+        $php_header = new php_header();
+        $php_header->content_type("json");
+        $php_header->Access_Control_Allow_Origin();
         if (isset($_REQUEST["t"]) and isset($_REQUEST["from"]) and
                 math::is_float($_REQUEST["t"]) and
                 in_array($_REQUEST["from"], ["K", "C", "F", "B"])
