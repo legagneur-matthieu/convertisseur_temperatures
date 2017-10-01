@@ -186,7 +186,6 @@ class ct {
                 ?>
             </div>
         </div>
-        <a href="ct.apk">APK</a>
         <?php
     }
 
