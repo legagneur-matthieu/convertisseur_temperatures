@@ -171,7 +171,7 @@ class ct {
                 <p>JQuery (POST)</p>
                 <?=
                 js::syntaxhighlighter('$.post("' . $url . '",' . "\n" .
-                        '    {service: "s_ct", t: 37, from: C},' . "\n" .
+                        '    {service: "s_ct", t: 37, from: "C"},' . "\n" .
                         '    function (data) {' . "\n" .
                         '        //use data' . "\n" .
                         '    }, "json");')
@@ -179,7 +179,7 @@ class ct {
                 <p>JQuery (GET)</p>
                 <?=
                 js::syntaxhighlighter('$.get("' . $url . '",' . "\n" .
-                        '    {service: "s_ct", t: 37, from: C},' . "\n" .
+                        '    {service: "s_ct", t: 37, from: "C"},' . "\n" .
                         '    function (data) {' . "\n" .
                         '        //use data' . "\n" .
                         '    }, "json");')
