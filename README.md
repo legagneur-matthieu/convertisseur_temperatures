@@ -1,8 +1,6 @@
-/!\ info le serveur lié a dwf.sytes.net est indisponible jusqu'au 5 septembre !
-
 # Convertisseur de températures
 
-Site : http://dwf.sytes.net/convertisseur_temperatures/
+Site : https://dwf.sytes.net/convertisseur_temperatures/
 
 Ce convertisseur supporte les unités :
 - Kelvin °K
