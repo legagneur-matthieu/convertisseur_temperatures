@@ -209,8 +209,8 @@ class ct {
                         <p>Equations de votre echelle :</p>
                     </div>
                     <div class="panel-body">
-                        <p>°C = <span class="x"></span> * °OWN + (<span class="zero"></span>)<br />
-                            °OWN = (°C - (<span class="zero"></span>)) / <span class="x"></span></p>
+                        <p>°C = <span class="x">0</span> * °OWN + (<span class="zero">0</span>)<br />
+                            °OWN = (°C - (<span class="zero">0</span>)) / <span class="x">0</span></p>
                     </div>
                 </div>
             </div>
@@ -257,8 +257,8 @@ class ct {
                     own = parseFloat($("#own").val());
                     c = parseFloat($("#c").val());
                     x = parseFloat(1 / (own / ($("#cown").val() - c)));
-                    $(".x").text(x);
-                    $(".zero").text(c);
+                    $(".x").text(x.toString());
+                    $(".zero").text(c.toString());
                     t = parseFloat($("#t").val());
                     switch ($("#from").val()) {
                         case "OWN":
