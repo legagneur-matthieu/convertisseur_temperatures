@@ -20,7 +20,7 @@ class pages { /** * Cette classe sert de "Vue" à votre application, * vous pouv
             }
             );
         </script>
-        <header class="page-header label-info">
+        <header class="page-header bg-info">
             <h1>Convertisseur de températures <br /><small>Kelvin (°K), Celsius (°C), Fahrenheit (°F), Benamran (°B, humoristique)</small></h1> 
         </header>
         <?php

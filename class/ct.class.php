@@ -11,28 +11,28 @@ class ct {
         ?>
         <h1 class="text-center">Convertisseur</h1>
         <div class="row">
-            <div class="col-xs-2"> </div>
-            <div class="col-xs-4">
+            <div class="col-sm-2"> </div>
+            <div class="col-sm-4">
                 <?php
-                form::new_form();
-                form::input("Température", "t", "text", "0", false);
-                form::select("Unité à convertir", "from", [
+                $form = new form();
+                $form->input("Température", "t", "text", "0", false);
+                $form->select("Unité à convertir", "from", [
                     ["K", "Kelvin (°K)"],
                     ["C", "Celsius (°C)"],
                     ["F", "Fahrenheit (°F)"],
                     ["B", "Benamran (°B)"],
                 ]);
-                form::submit("btn-default", "Calculer");
-                form::close_form();
+                $form->submit("btn-default", "Calculer");
+                echo $form->render();
                 ?>
             </div>
-            <div class="col-xs-1"> </div>
-            <div class="col-xs-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+            <div class="col-sm-1"> </div>
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-header">
                         <p>Resultats</p>
                     </div>
-                    <div class="panel-body">
+                    <div class="card-body">
                         <p id="result">
                             <span id="K"></span> °K
                             <br />
@@ -45,7 +45,7 @@ class ct {
                     </div>
                 </div>
             </div>
-            <div class="col-xs-2"> </div>
+            <div class="col-sm-2"> </div>
         </div>
         <?php
         ?>
@@ -90,7 +90,7 @@ class ct {
         ?>
         <h1 class="text-center">Precisions sur le degré Benamran</h1>
         <div class="row">
-            <div class="col-xs-6">
+            <div class="col-sm-6">
                 <p>
                     Le degré Benamran a été inventé à titre d'exemple humoristique par Bruce Benamran dans une vidéo sur sa chaine Youtube "e-penser".
                     Vidéo qui avais pour thème les échelles de températures.<br />
@@ -103,12 +103,12 @@ class ct {
                     ou : °B = (°C - 4.2) / 1.8850267379679144
                 </p>
             </div>
-            <div class="col-xs-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">
                         <p>Details des calculs pour trouver la constante "1.8850267379679144"</p>
                     </div>
-                    <div class="panel-body">                        
+                    <div class="card-body">                        
                         <p>
                             °C = X * °B + 4.2 <br />
                             X = 1 / (°B / (°C - 4.2)) <br />
@@ -119,7 +119,7 @@ class ct {
                 </div>
             </div>
         </div>
-        <div class="center-block" style="width: 600px;">
+        <div style="width: 600px; margin: 0 auto">
             <p class="text-center">Source : <strong><?= html_structures::a_link("https://www.youtube.com/watch?v=OqcqsUaEqUk", "Le Kelvin, c'est chaud - SI - 04 | e-penser (Bruce Benamran)", "", "YouTube, lien externe", true); ?></strong></p>
             <iframe width="600" height="340" src="https://www.youtube.com/embed/OqcqsUaEqUk" frameborder="0" allowfullscreen></iframe>
         </div>
@@ -138,19 +138,19 @@ class ct {
         </style>
         <h1 class="text-center">API</h1>
         <p class="text-center">Vous désirez utiliser l'API de ce convertisseur dans un projet ? c'est simple, efficace, libre et gratuit !</p>
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <dl class="dl-horizontal">
-                    <dt>URL :</dt>
-                    <dd>
+        <div class="card">
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-2">URL :</dt>
+                    <dd class="col-sm-10">
                         <p><?php echo $url = "http://" . $_SERVER["SERVER_NAME"] . strtr($_SERVER["SCRIPT_NAME"], ["index.php" => "services/index.php"]); ?></p>
                     </dd>
-                    <dt>Methodes : </dt>
-                    <dd>
+                    <dt class="col-sm-2">Methodes : </dt>
+                    <dd class="col-sm-10">
                         <p>GET et POST sont tout deux supporté</p>
                     </dd>
-                    <dt>Paramètres :</dt>
-                    <dd>
+                    <dt class="col-sm-2">Paramètres :</dt>
+                    <dd class="col-sm-10">
                         <?=
                         html_structures::table(["Clé", "Description", "Valeur"], [
                             ["service", "Nom du service", '"s_ct"'],
@@ -159,8 +159,8 @@ class ct {
                         ]);
                         ?>
                     </dd>
-                    <dt>Resultat en retour (JSON) :</dt>
-                    <dd>
+                    <dt class="col-sm-2">Resultat (JSON) :</dt>
+                    <dd class="col-sm-10">
                         <p>{"C":0,"K":273.16,"F":32,"B":-2.2280851063805}</p>
                     </dd>
                 </dl>
@@ -194,44 +194,47 @@ class ct {
         <h1 class="text-center">Créez votre échelle de température</h1>
         <p class="text-center">Le degré Benamran vous a fait sourir ? vous voulez essayer avec d'autres valeurs ? allez-y ! <br />
             <small>pour les calculs, votre échelle portera le nom "Own" et est noté °OWN</small></p>
-        <?php form::new_form(); ?>
+        <?php
+        $form = new form();
+        echo $form->get_open_form();
+        ?>
         <div class="row">
-            <div class="col-xs-6">
+            <div class="col-sm-6">
                 <?php
-                form::new_fieldset("1 - Definisez votre échelle");
-                form::input("Le zéro de votre échelle en °C", "c", "text", "0");
-                form::input("La valeur haute de votre échelle en °OWN", "own", "text", "100");
-                form::input("La valeur haute de votre échelle en °C", "cown", "text", "100");
-                form::close_fieldset();
+                echo $form->open_fieldset("1 - Definisez votre échelle") .
+                $form->input("Le zéro de votre échelle en °C", "c", "text", "0") .
+                $form->input("La valeur haute de votre échelle en °OWN", "own", "text", "100") .
+                $form->input("La valeur haute de votre échelle en °C", "cown", "text", "100") .
+                $form->close_fieldset();
                 ?>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card">
+                    <div class="card-header">
                         <p>Equations de votre echelle :</p>
                     </div>
-                    <div class="panel-body">
+                    <div class="card-body">
                         <p>°C = <span class="x">0</span> * °OWN + (<span class="zero">0</span>)<br />
                             °OWN = (°C - (<span class="zero">0</span>)) / <span class="x">0</span></p>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-6">
+            <div class="col-sm-6">
                 <?php
-                form::new_fieldset("2 - Testez votre échelle");
-                form::input("Température", "t", "text", "0", false);
-                form::select("Unité à convertir", "from", [
+                echo $form->open_fieldset("2 - Testez votre échelle") .
+                $form->input("Température", "t", "text", "0", false) .
+                $form->select("Unité à convertir", "from", [
                     ["OWN", "Own (°OWN)"],
                     ["K", "Kelvin (°K)"],
                     ["C", "Celsius (°C)"],
                     ["F", "Fahrenheit (°F)"],
                     ["B", "Benamran (°B)"],
-                ]);
-                form::close_fieldset();
+                ]) .
+                $form->close_fieldset();
                 ?>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card">
+                    <div class="card-header">
                         <p>Resultats</p>
                     </div>
-                    <div class="panel-body">
+                    <div class="card-body">
                         <p id="result">
                             <span id="r_own"></span> °OWN
                             <br />
@@ -248,7 +251,7 @@ class ct {
             </div>
         </div>
         <?php
-        form::close_form();
+        echo $form->get_close_form();
         ?>
         <script type="text/javascript">
             $(document).ready(function () {

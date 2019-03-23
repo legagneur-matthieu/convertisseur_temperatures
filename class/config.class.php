@@ -25,19 +25,19 @@ class config { /* PDO */
 
     public static function onbdd_connected() {
         self::$_route_auth = array(
-            array("page" => "index", "title" => "Page d'accueil", "text" => "ACCUEIL", "description" => "Index de devwebframework", "keyword" => "Index, devwebframework, DWF"),
+            array("page" => "index", "title" => "Page d'accueil", "text" => "ACCUEIL", "description" => "Index de devwebframework", "keywords" => "Index, devwebframework, DWF"),
             array("page" => "deco", "title" => "Deconnexion", "text" => "DECONNEXION"),
         );
-        $keyword = "converteur, temperatures, Kelvin, Celcius, Fahrenheit, Benamran, DWF";
+        $keywords = "converteur, temperatures, Kelvin, Celcius, Fahrenheit, Benamran, DWF";
         self::$_route_unauth = array(
             array("page" => "index", "title" => "Page d'accueil", "text" => "Accueil", "description" => "Converssion de temperatures : Kelvin, Celcius, Fahrenheit et Benamran (humoristique)",
-                "keyword" => $keyword),
+                "keywords" => $keywords),
             array("page" => "api", "title" => "API", "text" => "API", "description" => "API convertisseur de temperatures °K, °C, °F, °B",
-                "keyword" => "API, " . $keyword),
+                "keywords" => "API, " . $keywords),
             array("page" => "your_own", "title" => "créez votre echelle", "text" => "Votre Échelle", "description" => "API convertisseur de temperatures °K, °C, °F, °B",
-                "keyword" => $keyword),
+                "keywords" => $keywords),
             array("page" => "apk", "title" => "Le convertisseur de temperatures sur mobile", "text" => "APK", "description" => "APK Convertisseur de temperatures °K, °C, °F, °B",
-                "keyword" => $keyword),
+                "keywords" => $keywords),
         );
     }
 
