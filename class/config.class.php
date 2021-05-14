@@ -3,7 +3,7 @@
 /** * Cette classe sert de fichier de configuration, <br /> * elle contient: * <ul> * <li>les variables de connexion à la base de données</li> * <li>l 'algo utilisé pour les hash</li> * <li>les routes de l 'aplication</li> * </ul> * * mais vous pouvez également y ajouter des variables diverses qui vous seront utile */
 class config { /* PDO */
 
-    public static $_PDO_type = "mysql";
+    public static $_PDO_type = "sqlite";
     public static $_PDO_host = "localhost";
     public static $_PDO_dbname = "ct";
     public static $_PDO_login = "root";
