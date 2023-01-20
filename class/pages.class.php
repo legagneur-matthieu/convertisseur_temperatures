@@ -29,7 +29,12 @@ class pages { /** * Cette classe sert de "Vue" à votre application, * vous pouv
     /**     * Pied des pages */
     public function footer() {
         ?> <footer> <hr /> <p> 2017-<?php echo date("Y"); ?> D&eacute;velopp&eacute; par <?= html_structures::a_link("../legagneur-matthieu/", "LEGAGNEUR Matthieu", "", "LEGAGNEUR Matthieu, lien externe", true) ?></p>
-                <!--[if (IE 6)|(IE 7)]> <p><big>Ce site n'est pas compatible avec votre version d'internet explorer !</big></p> <![endif]--> 
+            <div style="width: 200px; float: right; position: relative; margin : -40px 10px 10px 0">
+                <?php
+                (new lurl(config::$_lurl_key))->selfpage_support_btn();
+                ?>
+            </div>
+            <!--[if (IE 6)|(IE 7)]> <p><big>Ce site n'est pas compatible avec votre version d'internet explorer !</big></p> <![endif]--> 
         </footer> <?php
     }
 

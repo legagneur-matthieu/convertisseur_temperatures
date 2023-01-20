@@ -22,6 +22,7 @@ class config { /* PDO */
     public static $_SMTP_psw = "";
     public static $_sitemap = false;
     public static $_statistiques = false;
+    public static $_lurl_key="";
 
     public static function onbdd_connected() {
         self::$_route_auth = array(
