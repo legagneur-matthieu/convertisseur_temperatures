@@ -169,20 +169,27 @@ class ct {
                     <?= html_structures::a_link($url . ($param = "?service=s_ct&t=37&from=C"), $url . $param, "", "", true); ?>
                 </p>
                 <p>JQuery (POST)</p>
-                <?=
-                js::syntaxhighlighter('$.post("' . $url . '",' . "\n" .
-                        '    {service: "s_ct", t: 37, from: "C"},' . "\n" .
-                        '    function (data) {' . "\n" .
-                        '        //use data' . "\n" .
-                        '    }, "json");')
+                <script>
+                                $.post("url",
+                                {service: "s_ct", t: 37, from: "C"},
+                                function (data) {
+                                    //use data
+                                }, "json");
+                </script>
+                <?php
+                debug::print_r("$.post(\"{$url}\",\n"
+                . "{service: \"s_ct\", t: 37, from: \"C\"},\n"
+                        . "function (data) {\n"
+                        . "    //use data\n"
+                        . "}, \"json\");");
                 ?>
                 <p>JQuery (GET)</p>
-                <?=
-                js::syntaxhighlighter('$.get("' . $url . '",' . "\n" .
-                        '    {service: "s_ct", t: 37, from: "C"},' . "\n" .
-                        '    function (data) {' . "\n" .
-                        '        //use data' . "\n" .
-                        '    }, "json");')
+                <?php
+                debug::print_r("$.get(\"{$url}\",\n"
+                . "{service: \"s_ct\", t: 37, from: \"C\"},\n"
+                        . "function (data) {\n"
+                        . "    //use data\n"
+                        . "}, \"json\");");
                 ?>
             </div>
         </div>
