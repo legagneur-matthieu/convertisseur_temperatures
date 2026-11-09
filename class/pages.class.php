@@ -13,7 +13,7 @@ class pages { /** * Cette classe sert de "Vue" à votre application, * vous pouv
     /**     * Entete des pages */
     public function header() {
         ?> 
-        <script type="text/javascript">
+        <script type="text/javascript" nonce="<?= csp::get_nonce() ?>">
             $(document).ready(function () {
                 $("header").css("background", "linear-gradient(to right, red, orange, yellow, yellowgreen, green, blue, indigo, violet)");
                 $("header small").css("text-shadow", "0 0 15px black");
@@ -51,5 +51,4 @@ class pages { /** * Cette classe sert de "Vue" à votre application, * vous pouv
     public function apk() {
         $this->_ct->apk();
     }
-
 }

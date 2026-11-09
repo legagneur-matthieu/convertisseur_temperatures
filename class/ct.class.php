@@ -49,7 +49,7 @@ class ct {
         </div>
         <?php
         ?>
-        <script type="text/javascript">
+        <script type="text/javascript" nonce="<?= csp::get_nonce() ?>">
             $(document).ready(function () {
                 function convert() {
                     t = parseFloat($("#t").val());
@@ -169,7 +169,7 @@ class ct {
                     <?= html_structures::a_link($url . ($param = "?service=s_ct&t=37&from=C"), $url . $param, "", "", true); ?>
                 </p>
                 <p>JQuery (POST)</p>
-                <script>
+                <script nonce="<?= csp::get_nonce() ?>">
                                 $.post("url",
                                 {service: "s_ct", t: 37, from: "C"},
                                 function (data) {
@@ -260,7 +260,7 @@ class ct {
         <?php
         echo $form->get_close_form();
         ?>
-        <script type="text/javascript">
+        <script type="text/javascript" nonce="<?= csp::get_nonce() ?>">
             $(document).ready(function () {
                 $("form").css("width", "100%");
                 function cown() {
